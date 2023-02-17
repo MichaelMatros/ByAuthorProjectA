@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1366 768" style="enable-background:new 0 0 1366 768;" xml:space="preserve">
+<style type="text/css">
+	.st0{stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+	.st1{fill:#AB000A;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#FFFFFF;stroke-width:8;stroke-miterlimit:10;}
+</style>
+<g>
+	<path class="st0" d="M653.5,244c36.5,0,70.7,14.2,96.5,40.1s40,60.3,40,96.9s-14.2,71-40,96.9S690,518,653.5,518
+		s-70.7-14.2-96.5-40.1s-40-60.3-40-96.9s14.2-71,40-96.9S617,244,653.5,244 M653.5,240C575.9,240,513,303.1,513,381
+		s62.9,141,140.5,141S794,458.9,794,381S731.1,240,653.5,240L653.5,240z"/>
+</g>
+<g>
+	<ellipse class="st1" cx="500.5" cy="382" rx="140.5" ry="141"/>
+</g>
+<g>
+	<path class="st2" d="M377.5,245c36.5,0,70.7,14.2,96.5,40.1s40,60.3,40,96.9s-14.2,71-40,96.9S414,519,377.5,519
+		s-70.7-14.2-96.5-40.1s-40-60.3-40-96.9s14.2-71,40-96.9S341,245,377.5,245 M377.5,241C299.9,241,237,304.1,237,382
+		s62.9,141,140.5,141S518,459.9,518,382S455.1,241,377.5,241L377.5,241z"/>
+</g>
+<g>
+	<line class="st3" x1="73" y1="384" x2="518" y2="382"/>
+</g>
+<g>
+	<line class="st3" x1="641" y1="382" x2="944" y2="381"/>
+</g>
+</svg>
