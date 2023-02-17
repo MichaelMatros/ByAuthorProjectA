@@ -1,0 +1,18 @@
+Login Forms 
+Size-block: 530 X 610 px
+
+Google login button: icon size: 19px; Font Text: Poppins 300 weight; Text Size: 20;
+
+Apple login button: icon size: 20px; Font Text: Poppins 300 weight; Text Size: 20px;
+
+Space "or" : Poppins, 300 weight; size: 18px;
+
+Text "Sign In": Poppins, 500 weight; size: 34px;
+
+Text "Don't have an account?  Sign Up": Poppins; 300weight; text size: 14px; Right here text "Sign Up": 400weight;
+
+input: Poppins; 400weight; 14px;
+
+Button "Next": Poppins; 500 weight; size 16px;
+
+text "Remember me": Poppins; 300 weight; size 14px;
