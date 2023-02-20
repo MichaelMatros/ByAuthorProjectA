@@ -1,16 +1,6 @@
-:root {
-  --clr-light: #ffffff;
-  --clr-accent: #a5a5a5;
-  --clr-header2: #343434;
-  --clr-google: #121212;
-  --clr-dark: #000000;
+@import "variables";
 
-  --ff-serif-poppins: "Poppins", sans-serif;
-  --ff-serif-montserrat: "Montserrat", sans-serif;
-  --ff-serif-montserrat_alt: "Montserrat Alternates", sans-serif;
-}
-
-button {
+.btn {
   width: 100%;
   max-width: 480px;
   padding-block: 0.8rem;
@@ -20,25 +10,24 @@ button {
   gap: 0.625rem;
   background-color: transparent;
   border: 1px solid #959595;
-  color: var(--clr-google);
-  font-family: var(--ff-serif-poppins);
+  color: $clr-google;
+  font-family: $ff-serif-poppins;
   border-radius: 3.125rem;
   cursor: pointer;
   letter-spacing: 0.05rem;
   font-size: 15px;
   font-weight: 300;
 }
-button span {
-  font-size: 15px;
-  font-weight: 300;
-  font-family: "Poppins", sans-serif;
+
+.auth-btn {
+  font-family: $ff-serif-poppins;
 }
 
 main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  color: var(--clr-light);
+  color: $clr-light;
   background-image: none;
   background-repeat: no-repeat;
 }
@@ -48,10 +37,10 @@ main {
   flex-direction: column;
   padding: 30px 10px;
   flex: 1;
-  color: var(--clr-dark);
-  font-family: var(--ff-serif-montserrat);
+  color: $clr-dark;
+  font-family: $ff-serif-montserrat;
   max-width: 500px;
-  background-color: var(--clr-light);
+  background-color: $clr-light;
 }
 
 .brand {
@@ -63,7 +52,7 @@ main {
 .brand span:nth-child(1) {
   padding: 8px 6px;
   font-weight: 600;
-  border: 1px solid var(--clr-dark);
+  border: 1px solid $clr-dark;
   border-radius: 10px;
 }
 .brand h1 {
@@ -91,37 +80,34 @@ main {
   grid-column: 1/3;
 }
 
-.social-login {
-  margin-block: 14px;
-}
-
 .divider {
   margin-block: 37px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
-}
-
-.divider span:nth-child(2) {
-  font-size: 18px;
+  padding-inline: 10px;
+  color: $clr-accent;
   font-weight: 300;
-  color: var(--clr-accent);
+  font-family: $ff-serif-poppins;
+  font-size: 18px;
+
+  &:before,
+  &:after {
+    height: 2px;
+    background-color: #cbcbcb;
+    content: "";
+    width: 100%;
+  }
 }
 
-.divider span:nth-child(1),
-.divider span:nth-child(3) {
-  display: block;
-  border: 0.3px solid #cbcbcb;
-  width: 200px;
-}
 .account {
   text-align: center;
-}
 
-.account button {
-  background-color: var(--clr-dark);
-  color: var(--clr-light);
+  .auth-btn {
+    background-color: $clr-dark;
+    color: $clr-light;
+  }
 }
 
 .account > div:nth-child(2) > span {
@@ -132,50 +118,60 @@ main {
 
 .policy {
   text-align: center;
+
+  a {
+    display: block;
+    margin-top: 60px;
+    color: $clr-accent;
+    font-family: $ff-serif-poppins;
+    font-weight: 200;
+    font-size: 14px;
+    letter-spacing: 1px;
+    position: relative;
+    top: 4vh;
+  }
 }
-.policy a {
-  display: block;
-  margin-top: 60px;
-  color: var(--clr-accent);
-  font-family: var(--ff-serif-poppins);
-  font-weight: 200;
-  font-size: 14px;
-  letter-spacing: 1px;
-  position: relative;
-  top: 4vh;
+
+.card-layout {
+  > div {
+    &:nth-child(8) {
+      margin-block: 20px;
+      width: 150px;
+      height: 4px;
+      background: $clr-accent;
+      align-self: center;
+    }
+  }
+
+  .right {
+    margin-block: 35px;
+    text-align: center;
+
+    h2 {
+      font-family: $ff-serif-montserrat;
+      font-weight: 500;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-family: $ff-serif-montserrat;
+      color: $clr-header2;
+      line-height: 1.1rem;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      position: relative;
+      top: 1vh;
+    }
+  }
 }
-.card-layout > div:nth-child(8) {
-  margin-block: 20px;
-  width: 150px;
-  height: 4px;
-  background: var(--clr-accent);
-  align-self: center;
-}
+
 .card-layout > div:nth-child(3),
 .tablet-brand,
 .left {
   display: none;
 }
 
-.right {
-  margin-block: 35px;
-  text-align: center;
-}
-.right h2 {
-  font-family: var(--ff-serif-montserrat);
-  font-weight: 500;
-  font-size: 1.8rem;
-  text-transform: uppercase;
-}
-.card-layout > .right:nth-child(3) p {
-  font-family: var(--ff-serif-montserrat);
-  color: var(--clr-header2);
-  line-height: 1.1rem;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  position: relative;
-  top: 1vh;
-}
 @media (501px <= width <= 1200px) {
   main {
     align-items: center;
@@ -200,7 +196,7 @@ main {
   }
   .tablet-brand {
     display: block;
-    color: var(--clr-light);
+    color: $clr-light;
   }
 
   .tablet-brand {
@@ -208,13 +204,13 @@ main {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: var(--ff-serif-montserrat);
+    font-family: $ff-serif-montserrat;
   }
 
   .tablet-brand span:nth-child(1) {
     padding: 8px 6px;
     font-weight: 600;
-    border: 1px solid var(--clr-light);
+    border: 1px solid $clr-light;
     border-radius: 10px;
   }
   .tablet-brand h1 {
@@ -241,10 +237,10 @@ main {
     margin-top: 2.3125rem;
     margin-left: 1.8125rem;
 
-    font-family: var(--ff-serif-poppins);
+    font-family: $ff-serif-poppins;
   }
   main .left-body span {
-    font-family: var(--ff-serif-poppins);
+    font-family: $ff-serif-poppins;
     font-weight: 275;
     font-size: clamp(4rem, calc(-2.92rem + 10.16vw), 9.75rem);
     line-height: 1;
@@ -254,7 +250,7 @@ main {
   main .left .brand span {
     margin-right: 3px;
     padding: 0.25rem 0.5rem;
-    border: 1px solid var(--clr-light);
+    border: 1px solid $clr-light;
     border-radius: 9px;
     font-weight: bold;
   }
@@ -285,11 +281,11 @@ main {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    font-family: var(--ff-serif-montserrat_alt);
+    font-family: $ff-serif-montserrat_alt;
     font-weight: 300;
     font-size: 16px;
     letter-spacing: 1px;
-    color: var(--clr-light);
+    color: $clr-light;
     text-decoration: none;
   }
   main .left .left-body img {
@@ -299,12 +295,12 @@ main {
   main .left p {
     margin-left: 2.375rem;
     margin-bottom: 1.875rem;
-    font-family: var(--ff-serif-montserrat_alt);
+    font-family: $ff-serif-montserrat_alt;
     font-size: 16px;
     font-weight: 300;
     line-height: 1.75rem;
     letter-spacing: 1px;
-    color: var(--clr-light);
+    color: $clr-light;
   }
   .left-body__bottom p span {
     font-weight: 600;
@@ -322,9 +318,5 @@ main {
   .card-layout .brand,
   .card-header {
     display: none;
-  }
-  .social-logins,
-  .account {
-    margin-inline: 44px;
   }
 }

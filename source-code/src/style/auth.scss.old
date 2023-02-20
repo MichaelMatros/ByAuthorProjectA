@@ -1,0 +1,89 @@
+@import "variables";
+
+.auth-btn {
+  text-decoration: none;
+  font-family: $ff-serif-poppins;
+  font-weight: 500;
+}
+
+.auth-dialog--wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: dialog-show 0.3s;
+
+  .auth-dialog--card {
+    .auth-dialog--close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 2em;
+      position: absolute;
+      top: 21px;
+      right: 10px;
+    }
+
+    background-color: $clr-light;
+    padding: 5em;
+    max-width: 100%;
+    width: 530px;
+    min-height: 610px;
+    border-radius: 1px;
+    position: relative;
+
+    box-shadow: 3px 4px 68px 10px rgba($clr-dark, 0.25);
+
+    animation: dialog-card 0.2s;
+  }
+}
+
+.oauth-logins {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .oauth-login--icon {
+    width: 19px;
+  }
+
+  .oauth-login {
+    font-family: $ff-serif-poppins;
+    font-weight: 300;
+    font-size: 20px;
+  }
+}
+
+@keyframes dialog-show {
+  0% {
+    backdrop-filter: blur(0px);
+  }
+  50% {
+    backdrop-filter: blur(3px);
+  }
+  100% {
+    backdrop-filter: blur(6px);
+  }
+}
+
+@keyframes dialog-card {
+  0% {
+    filter: blur(2px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
