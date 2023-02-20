@@ -1,0 +1,219 @@
+@import "variables";
+
+/**
+ * General Styling (including utils, etc)
+*/
+
+html,
+body {
+  height: 100%;
+
+  > #root {
+    height: 100%;
+  }
+}
+
+.d-none {
+  display: none;
+}
+
+.btn {
+  width: 100%;
+  max-width: 480px;
+  padding-block: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  background-color: transparent;
+  border: 1px solid #959595;
+  color: $clr-google;
+  font-family: $ff-serif-poppins;
+  border-radius: 3.125rem;
+  cursor: pointer;
+  letter-spacing: 0.05rem;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.divider {
+  width: 100%;
+  margin-block: $space-xs;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-inline: 10px;
+  color: $clr-accent;
+  font-weight: 300;
+  font-family: $ff-serif-poppins;
+  font-size: 18px;
+
+  &:before,
+  &:after {
+    height: 2px;
+    background-color: #cbcbcb;
+    content: "";
+    width: 100%;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $ff-serif-poppins;
+
+  span {
+    padding: 8px 6px;
+    font-weight: 600;
+    border: 1px solid $clr-dark;
+    border-radius: 10px;
+  }
+
+  &.alt {
+    color: $clr-light;
+
+    span {
+      border-color: $clr-light;
+    }
+  }
+
+  &.lg {
+    font-size: clamp(24px, 2vw, 2.5vw);
+  }
+}
+
+.input-checkbox {
+  $checkbox-size: 20px;
+
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: auto;
+  max-width: 100%;
+  height: $checkbox-size;
+  font-family: $ff-serif-poppins;
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $checkbox-size;
+    width: $checkbox-size;
+    border-radius: 50%;
+    border: 1px solid $clr-dark;
+    filter: blur(0);
+    transition: background-color 0.1s ease-in-out;
+  }
+
+  .text {
+    margin-left: calc($checkbox-size + $space-xs / 2);
+  }
+
+  input[type="checkbox"]:checked ~ .checkmark {
+    background-color: $clr-dark;
+    animation: pulse 0.3s ease-in-out;
+  }
+
+  @keyframes pulse {
+    0% {
+      filter: blur(2px);
+    }
+    50% {
+      filter: blur(1px);
+    }
+    100% {
+      filter: blur(0px);
+    }
+  }
+}
+
+.input {
+  $focus-color: $clr-dark;
+
+  position: relative;
+  height: 50px;
+  width: 100%;
+  font-size: 16px;
+  font-family: $ff-serif-poppins;
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    z-index: 2;
+    padding-top: 20px;
+    font-size: 16px;
+  }
+
+  &__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ccc;
+    z-index: 1;
+    transition: all 0.2s ease-out;
+    font-size: 16px;
+    padding-top: 20px;
+
+    &--active {
+      transform: translateY(-25px);
+      font-size: 12px;
+      color: $focus-color;
+    }
+  }
+
+  &__bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ccc;
+    transition: all 0.2s ease-out;
+
+    &--active {
+      background-color: $focus-color;
+    }
+  }
+
+  &--focused {
+    .input__label--active {
+      transform: translateY(-25px);
+      font-size: 12px;
+      color: $focus-color;
+    }
+
+    .input__bar--active {
+      background-color: $focus-color;
+    }
+  }
+
+  &--value {
+    .input__label--active {
+      transform: translateY(-25px);
+      font-size: 12px;
+      color: $focus-color;
+    }
+
+    .input__bar--active {
+      background-color: $focus-color;
+    }
+  }
+}
+
+.flex-space {
+  flex: 1 1 auto;
+}

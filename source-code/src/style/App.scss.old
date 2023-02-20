@@ -1,0 +1,322 @@
+@import "variables";
+
+.btn {
+  width: 100%;
+  max-width: 480px;
+  padding-block: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  background-color: transparent;
+  border: 1px solid #959595;
+  color: $clr-google;
+  font-family: $ff-serif-poppins;
+  border-radius: 3.125rem;
+  cursor: pointer;
+  letter-spacing: 0.05rem;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.auth-btn {
+  font-family: $ff-serif-poppins;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: $clr-light;
+  background-image: none;
+  background-repeat: no-repeat;
+}
+.card-layout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 10px;
+  flex: 1;
+  color: $clr-dark;
+  font-family: $ff-serif-montserrat;
+  max-width: 500px;
+  background-color: $clr-light;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand span:nth-child(1) {
+  padding: 8px 6px;
+  font-weight: 600;
+  border: 1px solid $clr-dark;
+  border-radius: 10px;
+}
+.brand h1 {
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.card-header {
+  margin-block: 50px;
+  align-self: center;
+  max-width: fit-content;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: auto 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-header span {
+  font-weight: 300;
+  font-size: clamp(1.25rem, calc(-1.75rem + 15vw), 2.94rem);
+  text-transform: uppercase;
+}
+.card-header span:nth-child(n + 3) {
+  grid-column: 1/3;
+}
+
+.divider {
+  margin-block: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-inline: 10px;
+  color: $clr-accent;
+  font-weight: 300;
+  font-family: $ff-serif-poppins;
+  font-size: 18px;
+
+  &:before,
+  &:after {
+    height: 2px;
+    background-color: #cbcbcb;
+    content: "";
+    width: 100%;
+  }
+}
+
+.account {
+  text-align: center;
+
+  .auth-btn {
+    background-color: $clr-dark;
+    color: $clr-light;
+  }
+}
+
+.account > div:nth-child(2) > span {
+  margin-top: 20px;
+  display: block;
+  font-weight: 300;
+}
+
+.policy {
+  text-align: center;
+
+  a {
+    display: block;
+    margin-top: 60px;
+    color: $clr-accent;
+    font-family: $ff-serif-poppins;
+    font-weight: 200;
+    font-size: 14px;
+    letter-spacing: 1px;
+    position: relative;
+    top: 4vh;
+  }
+}
+
+.card-layout {
+  > div {
+    &:nth-child(8) {
+      margin-block: 20px;
+      width: 150px;
+      height: 4px;
+      background: $clr-accent;
+      align-self: center;
+    }
+  }
+
+  .right {
+    margin-block: 35px;
+    text-align: center;
+
+    h2 {
+      font-family: $ff-serif-montserrat;
+      font-weight: 500;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-family: $ff-serif-montserrat;
+      color: $clr-header2;
+      line-height: 1.1rem;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      position: relative;
+      top: 1vh;
+    }
+  }
+}
+
+.card-layout > div:nth-child(3),
+.tablet-brand,
+.left {
+  display: none;
+}
+
+@media (501px <= width <= 1200px) {
+  main {
+    align-items: center;
+    justify-content: center;
+
+    background-size: cover;
+    background-repeat: center;
+  }
+
+  .card-layout {
+    max-width: 536px;
+    padding: 25px 50px;
+    max-height: 700px;
+  }
+  .card-layout > div:nth-child(3) {
+    display: block;
+  }
+  .card-header,
+  .brand,
+  .card-layout > div:nth-child(8) {
+    display: none;
+  }
+  .tablet-brand {
+    display: block;
+    color: $clr-light;
+  }
+
+  .tablet-brand {
+    margin-block: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: $ff-serif-montserrat;
+  }
+
+  .tablet-brand span:nth-child(1) {
+    padding: 8px 6px;
+    font-weight: 600;
+    border: 1px solid $clr-light;
+    border-radius: 10px;
+  }
+  .tablet-brand h1 {
+    font-weight: 300;
+    font-size: 18px;
+  }
+}
+@media (width >= 1201px) {
+  main {
+    flex-direction: row;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  main .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom 35% center;
+  }
+  main .left .brand {
+    margin-top: 2.3125rem;
+    margin-left: 1.8125rem;
+
+    font-family: $ff-serif-poppins;
+  }
+  main .left-body span {
+    font-family: $ff-serif-poppins;
+    font-weight: 275;
+    font-size: clamp(4rem, calc(-2.92rem + 10.16vw), 9.75rem);
+    line-height: 1;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+  }
+  main .left .brand span {
+    margin-right: 3px;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid $clr-light;
+    border-radius: 9px;
+    font-weight: bold;
+  }
+  main .left .left-body {
+    padding-inline: 2.375rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+  }
+  .left-body > span:nth-child(3),
+  .left-body > span:nth-child(4) {
+    grid-column-start: 1;
+    grid-column: 1/3;
+  }
+
+  .left-body__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .left-body__bottom p {
+    flex: 1;
+  }
+  .left-body__bottom .create {
+    margin-right: 1.625rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: $ff-serif-montserrat_alt;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: $clr-light;
+    text-decoration: none;
+  }
+  main .left .left-body img {
+    width: 200px;
+    height: auto;
+  }
+  main .left p {
+    margin-left: 2.375rem;
+    margin-bottom: 1.875rem;
+    font-family: $ff-serif-montserrat_alt;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.75rem;
+    letter-spacing: 1px;
+    color: $clr-light;
+  }
+  .left-body__bottom p span {
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    line-height: 1.75rem;
+  }
+  .card-layout {
+    justify-content: center;
+  }
+  .card-layout > div:nth-child(3) {
+    display: block;
+  }
+  .card-layout > div:nth-child(8),
+  .card-layout .brand,
+  .card-header {
+    display: none;
+  }
+}
