@@ -5,6 +5,7 @@ specifiers:
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
   '@types/uuid': ^9.0.0
+  '@types/validator': ^13.7.12
   '@vitejs/plugin-react-swc': ^3.0.0
   autoprefixer: ^10.4.13
   postcss: ^8.4.21
@@ -14,6 +15,7 @@ specifiers:
   sass: ^1.58.2
   typescript: ^4.9.3
   uuid: ^9.0.0
+  validator: ^13.9.0
   vite: ^4.1.0
 
 dependencies:
@@ -21,12 +23,14 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-router-dom: 6.8.1_biqbaboplfbrettd7655fr4n2y
   uuid: 9.0.0
+  validator: 13.9.0
 
 devDependencies:
   '@types/node': 18.14.0
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   '@types/uuid': 9.0.0
+  '@types/validator': 13.7.12
   '@vitejs/plugin-react-swc': 3.1.0_vite@4.1.2
   autoprefixer: 10.4.13_postcss@8.4.21
   postcss: 8.4.21
@@ -374,6 +378,10 @@ packages:
 
   /@types/uuid/9.0.0:
     resolution: {integrity: sha512-kr90f+ERiQtKWMz5rP32ltJ/BtULDI5RVO0uavn1HQUOwjx0R1h0rnDYNL0CepF1zL5bSY6FISAfd9tOdDhU5Q==}
+    dev: true
+
+  /@types/validator/13.7.12:
+    resolution: {integrity: sha512-YVtyAPqpefU+Mm/qqnOANW6IkqKpCSrarcyV269C8MA8Ux0dbkEuQwM/4CjL47kVEM2LgBef/ETfkH+c6+moFA==}
     dev: true
 
   /@vitejs/plugin-react-swc/3.1.0_vite@4.1.2:
@@ -739,6 +747,11 @@ packages:
   /uuid/9.0.0:
     resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
     hasBin: true
+    dev: false
+
+  /validator/13.9.0:
+    resolution: {integrity: sha512-B+dGG8U3fdtM0/aNK4/X8CXq/EcxU2WPrPEkJGslb47qyHsxmbggTWK0yEA4qnYVNF+nxNlN88o14hIcPmSIEA==}
+    engines: {node: '>= 0.10'}
     dev: false
 
   /vite/4.1.2_h2gvre22eabp44f73sm2o2xzvq:
