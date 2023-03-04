@@ -1,62 +1,94 @@
 import { v4 as uuid } from "uuid";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import { FormControlProps, FormInputProps } from "@/types/form";
+import { useValidator } from "@/hooks/useForm";
+import { createClasses } from "@/utils";
 
-type FormInputProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
-> & {
-  label?: string;
-  labelAfter?: boolean;
-  onChange?: (e: string) => void;
-  onChangeOriginal?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+type AdditionalProps = {
+  prepend?: JSX.Element;
+  append?: JSX.Element;
 };
 
-function FormInput({
-  label,
-  labelAfter,
-  onChange,
-  value,
-  type = "text",
-  id = uuid(),
-  ...inputProps
-}: FormInputProps) {
-  const [focused, setFocused] = useState(false);
+const FormInput = React.forwardRef(
+  (
+    {
+      label = "",
+      labelAfter,
+      prepend,
+      append,
+      showError,
+      onChange,
+      value = "",
+      type = "text",
+      id,
+      validation,
+      ...inputProps
+    }: FormInputProps & AdditionalProps,
+    ref: React.ForwardedRef<HTMLInputElement>
+  ) => {
+    const uniqueId = useMemo(() => id ?? uuid(), [id]);
+    const { validate, errorMessage } = useValidator(
+      value,
+      uniqueId,
+      label,
+      validation
+    );
 
-  function handleInputFocus() {
-    setFocused(true);
-  }
+    const [focused, setFocused] = useState(false);
 
-  function handleInputBlur() {
-    if (!value) {
-      setFocused(false);
+    function handleInputFocus() {
+      setFocused(true);
     }
-  }
 
-  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    onChange?.(e.target.value);
-  }
+    function handleInputBlur() {
+      validate();
 
-  return (
-    <div className={`input ${focused && "input--focused"}`}>
-      <input
-        type={type}
-        className="input__input"
-        id={id}
-        value={value}
-        {...inputProps}
-        onChange={handleInputChange}
-        onFocus={handleInputFocus}
-        onBlur={handleInputBlur}
-      />
-      <label
-        className={`input__label ${focused && "input__label--active"}`}
-        htmlFor={id}
+      if (!value) {
+        setFocused(false);
+      }
+    }
+
+    function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+      onChange?.(e.target.value);
+    }
+
+    return (
+      <div
+        className={createClasses(
+          "input",
+          focused && "input--focused",
+          errorMessage && "input--error",
+          showError && "show-error"
+        )}
       >
-        {label}
-      </label>
-      <div className={`input__bar ${focused && "input__bar--active"}`}></div>
-    </div>
-  );
-}
+        <div className="input__inner">
+          {prepend && <div className="input__icon--start">{prepend}</div>}
+          <input
+            type={type}
+            className="input__control"
+            id={id}
+            value={value}
+            placeholder={label}
+            ref={ref}
+            {...inputProps}
+            onChange={handleInputChange}
+            onFocus={handleInputFocus}
+            onBlur={handleInputBlur}
+          />
+          {append && <div className="input__icon--end">{append}</div>}
+        </div>
+        <div
+          className={createClasses(
+            "input__bar",
+            focused && "input__bar--active"
+          )}
+        />
+        {errorMessage && showError && (
+          <span className="input__error">{errorMessage}</span>
+        )}
+      </div>
+    );
+  }
+);
 
 export default FormInput;

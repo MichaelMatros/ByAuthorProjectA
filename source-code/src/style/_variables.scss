@@ -1,14 +1,27 @@
 // Colours
-$clr-light: #ffffff;
 $clr-accent: #a5a5a5;
 $clr-header2: #343434;
 $clr-google: #121212;
 $clr-dark: #000000;
 
+$clr-light: #fff;
+
+$clr-dark-100: #070707;
+$clr-dark-200: #151515;
+$clr-dark-300: #6d6d6d;
+$clr-dark-400: #939393;
+$clr-dark-500: #9d9d9d;
+$clr-dark-600: #b7b7b7;
+
+$clr-red-100: #f93f49;
+
+$clr-green-100: #2bba2b;
+
 // Typography
 $ff-serif-poppins: "Poppins", sans-serif;
 $ff-serif-montserrat: "Montserrat", sans-serif;
 $ff-serif-montserrat_alt: "Montserrat Alternates", sans-serif;
+$ff-serif-questrial: "Questrial", sans-serif;
 
 // Spacing
 $space-xs: 1em;
@@ -19,3 +32,11 @@ $space-lg: 6em;
 // Breakpoints
 $bp-tablet: 600px;
 $bp-desktop: 1200px;
+
+// Form
+$form-child-height-md: 43px;
+$form-child-height-lg: 53px;
+
+// Buttons
+$btn-height-md: 50px;
+$btn-height-lg: 60px;

@@ -235,6 +235,7 @@ $card-radius: 1px;
   left: 0;
   width: 100%;
   height: 100%;
+  overflow-y: auto;
 
   display: flex;
   flex-direction: column;
@@ -250,8 +251,16 @@ $card-radius: 1px;
     backdrop-filter: blur(6px);
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    align-items: center;
+  }
+
   &__card {
     &--close {
+      padding: 0px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -260,19 +269,44 @@ $card-radius: 1px;
       outline: none;
       cursor: pointer;
       font-size: 2em;
-      position: absolute;
-      top: 21px;
-      right: 10px;
+      // position: absolute;
+      // top: 21px;
+      // right: 10px;
+
+      img {
+        width: 18px;
+      }
+
+      &.no-mobile {
+        display: none;
+      }
+
+      @include media-desktop {
+        &,
+        &.no-mobile {
+          display: flex;
+        }
+      }
     }
 
     &--back {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: transparent;
       border: none;
       width: auto;
+      padding: 0px;
+
+      @include media-desktop {
+        &.no-desktop {
+          display: none;
+        }
+      }
     }
 
     background-color: $clr-light;
-    max-width: 100%;
+    max-width: 100vw;
     width: 530px;
     min-height: 100vh;
     border-radius: 1px;
@@ -281,7 +315,7 @@ $card-radius: 1px;
     flex-direction: column;
     gap: $space-xs;
     padding-block: $space-sm;
-    padding-inline: $space-lg;
+    padding-inline: $space-sm;
 
     box-shadow: 3px 4px 68px 10px rgba($clr-dark, 0.25);
 
@@ -295,7 +329,28 @@ $card-radius: 1px;
       display: flex;
       flex-direction: column;
       gap: $space-xs;
-      overflow-x: hidden;
+      // overflow-x: hidden;
+
+      &__error-message {
+        width: 100%;
+        display: flex;
+        font-family: $ff-serif-poppins;
+        border-left: 1px solid $clr-red-100;
+        align-items: center;
+        margin-bottom: $space-xs;
+
+        &--icon {
+          color: $clr-red-100;
+          padding-inline: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        &--text {
+          color: $clr-dark-300;
+        }
+      }
 
       &__title {
         font-family: $ff-serif-poppins;
@@ -321,15 +376,27 @@ $card-radius: 1px;
 
         &--btn {
           width: auto;
+          height: $form-child-height-md;
           background-color: $clr-dark;
           color: $clr-light;
           padding-inline: $space-sm;
           font-weight: 500;
           font-size: 16px;
           justify-self: flex-end;
+          transition: all 0.2s;
+
+          &.full {
+            width: 100%;
+          }
 
           &:disabled {
             background-color: lighten($clr-dark, 30%);
+          }
+
+          &.can-hover {
+            &:hover:not(:disabled) {
+              transform: scale(1.05);
+            }
           }
         }
       }
@@ -342,15 +409,67 @@ $card-radius: 1px;
 
       &__multi-step {
         display: flex;
-        min-width: 100%;
+        width: 100%;
         gap: $space-md;
         flex-wrap: nowrap;
 
-        &--step {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          gap: $space-xs;
+        &--item {
+          &,
+          &-wrapper,
+          &-controls {
+            flex: 1;
+            display: flex;
+            gap: $space-xs;
+            width: 100%;
+
+            flex-direction: column;
+
+            &.alt {
+              flex-direction: row;
+              flex-wrap: wrap;
+            }
+          }
+
+          &__lead {
+            display: flex;
+            gap: $space-xs;
+            align-items: flex-start;
+
+            > * {
+              display: flex;
+              flex-direction: column;
+              gap: $space-xs;
+              justify-content: flex-start;
+              align-items: flex-start;
+            }
+          }
+
+          &__title {
+            font-family: $ff-serif-questrial;
+            font-size: 40px;
+            line-height: 34px;
+          }
+
+          &__link {
+            font-family: $ff-serif-poppins;
+            font-size: 14px;
+            font-weight: 300;
+            color: $clr-dark-300;
+
+            a {
+              font-weight: 400;
+              text-decoration: none;
+              color: $clr-dark;
+            }
+          }
+
+          @include media-tablet {
+            &-wrapper {
+              flex-direction: row;
+              flex-wrap: wrap;
+            }
+          }
+
           animation: dialog-card 1.5s;
         }
       }

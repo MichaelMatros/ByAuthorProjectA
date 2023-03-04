@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { AuthDialogContext } from "@components/AuthDialog";
+import { useContext, useEffect, useState } from "react";
 
 export function useAuthDialog() {
+  const context = useContext(AuthDialogContext);
   const [showDialog, setShowDialog] = useState(false);
   const [currentDialogName, setCurrentDialogName] = useState<null | string>(
     null
@@ -28,5 +30,6 @@ export function useAuthDialog() {
   return {
     showDialog,
     currentDialogName,
+    ...context,
   };
 }

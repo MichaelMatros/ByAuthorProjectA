@@ -2,6 +2,7 @@ import React from "react";
 
 import logo from "@assets/logo.svg";
 import mobileLogo from "@assets/logo-mobile.svg";
+import { createClasses } from "@/utils";
 
 interface AuthCaptionProps {
   center?: boolean;
@@ -10,7 +11,13 @@ interface AuthCaptionProps {
 
 function AuthCaption({ center, alt }: AuthCaptionProps) {
   return (
-    <div className={`auth--caption ${center && "center"} ${alt && "alt"}`}>
+    <div
+      className={createClasses(
+        "auth--caption",
+        center && "center",
+        alt && "alt"
+      )}
+    >
       <div className="auth--caption-graphics">
         <img src={logo} alt="logo" className="lg" />
         <img src={mobileLogo} alt="logo" className="mobile" />
