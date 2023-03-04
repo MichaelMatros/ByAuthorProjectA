@@ -1,18 +1,16 @@
 import React, { ReactNode } from "react";
+import Brand from "./Brand";
 
 interface AuthDialogProps {
   children: ReactNode;
-  onClose?: () => void;
 }
 
-function AuthDialogCard({ children, onClose }: AuthDialogProps) {
+function AuthDialogCard({ children }: AuthDialogProps) {
   return (
-    <div className="auth-dialog__card">
-      <button className="auth-dialog__card--close" onClick={() => onClose?.()}>
-        &#x2715;
-      </button>
-      {children}
-    </div>
+    <>
+      <Brand tabletOnly alt lg />
+      <div className="auth-dialog__card">{children}</div>
+    </>
   );
 }
 

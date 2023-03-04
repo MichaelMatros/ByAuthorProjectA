@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins/screen";
 
 /**
  * General Styling (including utils, etc)
@@ -34,6 +35,14 @@ body {
   letter-spacing: 0.05rem;
   font-size: 15px;
   font-weight: 300;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &--loading {
+    cursor: wait !important;
+  }
 }
 
 .divider {
@@ -73,6 +82,7 @@ body {
 
   &.alt {
     color: $clr-light;
+    text-shadow: 2px 2px 4px rgba($clr-dark, 0.2);
 
     span {
       border-color: $clr-light;
@@ -81,6 +91,84 @@ body {
 
   &.lg {
     font-size: clamp(24px, 2vw, 2.5vw);
+  }
+
+  &.tablet-only,
+  &.desktop-only {
+    display: none;
+  }
+
+  @include media-tablet {
+    &.mobile-only,
+    &.desktop-only {
+      display: none;
+    }
+
+    &.tablet-only {
+      display: flex;
+    }
+  }
+
+  @include media-desktop {
+    &.mobile-only,
+    &.tablet-only {
+      display: none;
+    }
+
+    &.desktop-only {
+      display: flex;
+    }
+  }
+}
+
+.skills {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .skill__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: auto;
+    max-width: 100%;
+    height: 31px;
+    border-radius: 30px;
+    border: 1px solid $clr-dark-200;
+    padding-inline: $space-sm;
+    padding-block: $space-xs;
+    gap: 6px;
+
+    input[type="checkbox"] {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    &--selected {
+      background-color: $clr-dark;
+      color: $clr-light;
+      animation: pulse 0.3s ease-in-out;
+    }
+
+    .checkmark {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      border: 1px dashed $clr-dark;
+      font-size: 30px;
+    }
+
+    .text {
+      white-space: nowrap;
+    }
   }
 }
 
@@ -92,7 +180,7 @@ body {
   position: relative;
   width: auto;
   max-width: 100%;
-  height: $checkbox-size;
+  min-height: $checkbox-size;
   font-family: $ff-serif-poppins;
 
   input[type="checkbox"] {
@@ -103,14 +191,20 @@ body {
 
   .checkmark {
     position: absolute;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     left: 0;
     height: $checkbox-size;
     width: $checkbox-size;
-    border-radius: 50%;
+    border-radius: 3px;
     border: 1px solid $clr-dark;
     filter: blur(0);
     transition: background-color 0.1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
   }
 
   .text {
@@ -119,60 +213,53 @@ body {
 
   input[type="checkbox"]:checked ~ .checkmark {
     background-color: $clr-dark;
+    color: $clr-light;
     animation: pulse 0.3s ease-in-out;
-  }
-
-  @keyframes pulse {
-    0% {
-      filter: blur(2px);
-    }
-    50% {
-      filter: blur(1px);
-    }
-    100% {
-      filter: blur(0px);
-    }
   }
 }
 
 .input {
   $focus-color: $clr-dark;
+  $error-height: $space-xs;
+  $padding-space: 10px;
 
   position: relative;
-  height: 50px;
+  height: $form-child-height-md;
   width: 100%;
   font-size: 16px;
+  padding-inline: $padding-space;
   font-family: $ff-serif-poppins;
 
-  &__input {
-    position: absolute;
-    top: 0;
-    left: 0;
+  &.show-error {
+    margin-bottom: $error-height;
+  }
+
+  &__inner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: $padding-space;
+  }
+
+  &__icon--start,
+  &__icon--end {
+    display: flex;
+    align-items: center;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__control {
     width: 100%;
     height: 100%;
     border: none;
     outline: none;
     background: transparent;
     z-index: 2;
-    padding-top: 20px;
     font-size: 16px;
-  }
-
-  &__label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #ccc;
-    z-index: 1;
-    transition: all 0.2s ease-out;
-    font-size: 16px;
-    padding-top: 20px;
-
-    &--active {
-      transform: translateY(-25px);
-      font-size: 12px;
-      color: $focus-color;
-    }
   }
 
   &__bar {
@@ -186,6 +273,26 @@ body {
 
     &--active {
       background-color: $focus-color;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    bottom: -($error-height);
+    left: 0;
+    width: 100%;
+    height: $error-height;
+    color: $clr-red-100;
+    animation: pulse 0.3s ease-in-out;
+  }
+
+  &--error {
+    .input__bar {
+      background-color: lighten($clr-red-100, 20%);
+    }
+
+    .input__bar--active {
+      background-color: $clr-red-100 !important;
     }
   }
 
@@ -214,6 +321,22 @@ body {
   }
 }
 
+.flex {
+  display: flex;
+}
+
 .flex-space {
   flex: 1 1 auto;
+}
+
+@keyframes pulse {
+  0% {
+    filter: blur(2px);
+  }
+  50% {
+    filter: blur(1px);
+  }
+  100% {
+    filter: blur(0px);
+  }
 }
