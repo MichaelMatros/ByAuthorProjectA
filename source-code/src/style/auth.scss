@@ -153,32 +153,6 @@ $card-radius: 1px;
       grid-column: span 11 / span 11;
       padding-block: $space-xs;
       padding-inline: $space-sm;
-
-      .footer {
-        display: flex;
-        align-items: flex-end;
-        font-family: $ff-serif-montserrat_alt;
-        font-weight: 300;
-        font-size: 1rem;
-        color: $clr-light;
-        line-height: 1.75rem;
-
-        &__text {
-          > span {
-            font-weight: 600;
-          }
-        }
-
-        &__link {
-          a {
-            text-decoration: none;
-            color: $clr-light;
-
-            display: flex;
-            align-items: center;
-          }
-        }
-      }
     }
   }
 }

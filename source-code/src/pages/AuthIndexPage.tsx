@@ -6,10 +6,9 @@ import brand from "@assets/logo.svg";
 import { useAuthDialog } from "@/hooks/useAuth";
 import AuthDialog from "@components/AuthDialog";
 import { useEffect, useState } from "react";
-import AuthOAuthLogins from "@components/AuthOAuthLogins";
-import AuthCaption from "@/components/AuthCaption";
 import Brand from "@/components/Brand";
-import Space from "@/components/Space";
+import AuthPageTextSection from "@components/AuthPageTextSection";
+import AuthPageActionsSection from "@components/AuthPageActionsSection";
 
 function randomBGImage() {
   const images = [
@@ -37,52 +36,9 @@ function AuthIndexPage() {
         }}
         className="auth"
       >
-        <div className="auth__text">
-          <Brand alt lg />
-          <Space />
-          <AuthCaption alt />
-          <Space />
-          <div className="footer">
-            <div className="footer__text">
-              Share your project and find <br /> new friends on the
-              <span> new SMART</span> platform
-            </div>
-            <Space />
-            <div className="footer__link">
-              <a href="#signup" className="create">
-                Create a profile
-                <span className="material-symbols-outlined">arrow_forward</span>
-              </a>
-            </div>
-          </div>
-        </div>
+        <AuthPageTextSection />
         <Brand className="hidden tablet:flex desktop:hidden mb-10" alt />
-        <section className="auth__actions">
-          <Brand className="tablet:hidden" />
-          <AuthCaption center />
-          <div className="get-started">
-            <h2>Get started </h2>
-            <p>
-              create a new account or log in <br /> already created
-            </p>
-          </div>
-          <AuthOAuthLogins />
-          <div className="divider">or</div>
-          <div className="account">
-            <a href="#signup" className="btn auth-btn">
-              Create a New Account
-            </a>
-            <div className="account__alts">
-              <span>Do you have account?</span>
-              <a href="#signin" className="btn auth-btn">
-                Sign In
-              </a>
-            </div>
-          </div>
-          <div className="policy">
-            <a href="/">Privacy Policy</a>
-          </div>
-        </section>
+        <AuthPageActionsSection />
       </main>
       <AuthDialog show={showDialog} />
     </>
