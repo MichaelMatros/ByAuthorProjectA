@@ -3,7 +3,7 @@ import Space from "./Space";
 
 function AuthTextSectionFooter() {
   return (
-    <div className="flex items-end font-montserrat-alt font-light text-app-light leading-5">
+    <div className="flex items-end font-montserrat-alt font-light text-app-light text-[16px] leading-5">
       <div>
         Share your project and find <br /> new friends on the
         <span className="font-semibold"> new SMART</span> platform
