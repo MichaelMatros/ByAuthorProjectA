@@ -82,10 +82,6 @@ $card-radius: 1px;
     padding-inline: $space-xs;
     padding-block: $space-sm;
     font-family: $ff-serif-montserrat;
-
-    .get-started {
-      display: none;
-    }
   }
 
   @include media-tablet {
@@ -115,34 +111,8 @@ $card-radius: 1px;
       padding-inline: $space-sm;
       gap: $space-sm;
 
-      .brand {
-        display: none;
-      }
-
       .auth--caption {
         display: none;
-      }
-
-      .get-started {
-        font-family: $ff-serif-montserrat;
-        color: $clr-dark;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        text-transform: uppercase;
-
-        h2 {
-          font-size: 1.8rem;
-          font-weight: 500;
-          margin-bottom: calc($space-xs/3);
-        }
-
-        p {
-          color: $clr-header2;
-          line-height: $space-sm - 0.5;
-          font-size: 0.8rem;
-        }
       }
     }
 
@@ -157,10 +127,6 @@ $card-radius: 1px;
   }
 }
 
-.auth-btn {
-  text-decoration: none;
-}
-
 .account {
   width: 100%;
   text-align: center;
@@ -171,11 +137,6 @@ $card-radius: 1px;
 
   > * {
     width: 100%;
-  }
-
-  .auth-btn {
-    background-color: $clr-dark;
-    color: $clr-light;
   }
 
   &__alts {
@@ -452,24 +413,6 @@ $card-radius: 1px;
     @include media-tablet {
       min-height: 610px;
     }
-  }
-}
-
-.oauth-logins {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-
-  .oauth-login--icon {
-    width: 19px;
-  }
-
-  .oauth-login {
-    font-family: $ff-serif-poppins;
-    font-weight: 300;
-    font-size: 20px;
   }
 }
 

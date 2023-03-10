@@ -8,14 +8,21 @@ module.exports = {
         desktop: "1200px",
       },
       colors: {
-        "app-dark": "#000",
+        "app-dark": {
+          DEFAULT: "#000",
+          "header-2": "#343434",
+        },
         "app-light": "#fff",
+        accent: "#a5a5a5",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
         "montserrat-alt": ["Montserrat Alternates", "sans-serif"],
         questrial: ["Questrial", "sans-serif"],
+      },
+      fontSize: {
+        base: "16px",
       },
     },
   },

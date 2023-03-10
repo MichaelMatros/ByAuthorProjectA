@@ -19,51 +19,23 @@ body {
 }
 
 .btn {
-  width: 100%;
-  max-width: 480px;
-  padding-block: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625rem;
-  background-color: transparent;
-  border: 1px solid #959595;
-  color: $clr-google;
-  font-family: $ff-serif-poppins;
-  border-radius: 3.125rem;
-  cursor: pointer;
-  letter-spacing: 0.05rem;
-  font-size: 15px;
-  font-weight: 300;
+  @apply w-full max-w-[480px] py-3 flex items-center justify-center gap-2 bg-transparent border border-[#959595] text-app-dark font-poppins rounded-[3.125rem] cursor-pointer tracking-[0.05rem] text-base font-light;
 
   &:disabled {
-    cursor: not-allowed;
+    @apply cursor-not-allowed;
   }
 
   &--loading {
-    cursor: wait !important;
+    @apply cursor-wait #{!important};
   }
 }
 
 .divider {
-  width: 100%;
-  margin-block: $space-xs;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding-inline: 10px;
-  color: $clr-accent;
-  font-weight: 300;
-  font-family: $ff-serif-poppins;
-  font-size: 18px;
+  @apply w-full my-[1px] flex items-center justify-center gap-4 px-3 text-accent font-light font-montserrat text-lg;
 
   &:before,
   &:after {
-    height: 2px;
-    background-color: #cbcbcb;
-    content: "";
-    width: 100%;
+    @apply h-[2px] bg-[#cbcbcb] content-[''] w-full;
   }
 }
 
