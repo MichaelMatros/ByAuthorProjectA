@@ -56,8 +56,9 @@ function AuthIndexPage() {
             </div>
           </div>
         </div>
+        <Brand className="hidden tablet:flex desktop:hidden mb-10" alt />
         <section className="auth__actions">
-          <Brand />
+          <Brand className="tablet:hidden" />
           <AuthCaption center />
           <div className="get-started">
             <h2>Get started </h2>

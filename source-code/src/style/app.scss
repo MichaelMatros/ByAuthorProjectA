@@ -68,56 +68,8 @@ body {
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: $ff-serif-poppins;
-
-  span {
-    padding: 8px 6px;
-    font-weight: 600;
-    border: 1px solid $clr-dark;
-    border-radius: 10px;
-  }
-
-  &.alt {
-    color: $clr-light;
+  &--alt {
     text-shadow: 2px 2px 4px rgba($clr-dark, 0.2);
-
-    span {
-      border-color: $clr-light;
-    }
-  }
-
-  &.lg {
-    font-size: clamp(24px, 2vw, 2.5vw);
-  }
-
-  &.tablet-only,
-  &.desktop-only {
-    display: none;
-  }
-
-  @include media-tablet {
-    &.mobile-only,
-    &.desktop-only {
-      display: none;
-    }
-
-    &.tablet-only {
-      display: flex;
-    }
-  }
-
-  @include media-desktop {
-    &.mobile-only,
-    &.tablet-only {
-      display: none;
-    }
-
-    &.desktop-only {
-      display: flex;
-    }
   }
 }
 

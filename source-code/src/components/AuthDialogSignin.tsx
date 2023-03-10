@@ -48,7 +48,7 @@ function AuthDialogSignin() {
 
   return (
     <AuthDialogCard>
-      <Brand />
+      <Brand className="tablet:hidden" />
       <FormMultistepProvider>
         <div>
           <FormMultistepNav
