@@ -19,105 +19,29 @@ body {
 }
 
 .btn {
-  width: 100%;
-  max-width: 480px;
-  padding-block: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625rem;
-  background-color: transparent;
-  border: 1px solid #959595;
-  color: $clr-google;
-  font-family: $ff-serif-poppins;
-  border-radius: 3.125rem;
-  cursor: pointer;
-  letter-spacing: 0.05rem;
-  font-size: 15px;
-  font-weight: 300;
+  @apply w-full max-w-[480px] py-3 flex items-center justify-center gap-2 bg-transparent border border-[#959595] text-app-dark font-poppins rounded-[3.125rem] cursor-pointer tracking-[0.05rem] text-base font-light;
 
   &:disabled {
-    cursor: not-allowed;
+    @apply cursor-not-allowed;
   }
 
   &--loading {
-    cursor: wait !important;
+    @apply cursor-wait #{!important};
   }
 }
 
 .divider {
-  width: 100%;
-  margin-block: $space-xs;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding-inline: 10px;
-  color: $clr-accent;
-  font-weight: 300;
-  font-family: $ff-serif-poppins;
-  font-size: 18px;
+  @apply w-full my-[1px] flex items-center justify-center gap-4 px-3 text-accent font-light font-montserrat text-lg;
 
   &:before,
   &:after {
-    height: 2px;
-    background-color: #cbcbcb;
-    content: "";
-    width: 100%;
+    @apply h-[2px] bg-[#cbcbcb] content-[''] w-full;
   }
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: $ff-serif-poppins;
-
-  span {
-    padding: 8px 6px;
-    font-weight: 600;
-    border: 1px solid $clr-dark;
-    border-radius: 10px;
-  }
-
-  &.alt {
-    color: $clr-light;
+  &--alt {
     text-shadow: 2px 2px 4px rgba($clr-dark, 0.2);
-
-    span {
-      border-color: $clr-light;
-    }
-  }
-
-  &.lg {
-    font-size: clamp(24px, 2vw, 2.5vw);
-  }
-
-  &.tablet-only,
-  &.desktop-only {
-    display: none;
-  }
-
-  @include media-tablet {
-    &.mobile-only,
-    &.desktop-only {
-      display: none;
-    }
-
-    &.tablet-only {
-      display: flex;
-    }
-  }
-
-  @include media-desktop {
-    &.mobile-only,
-    &.tablet-only {
-      display: none;
-    }
-
-    &.desktop-only {
-      display: flex;
-    }
   }
 }
 
@@ -159,11 +83,11 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 24px;
-      width: 24px;
+      height: 16px;
+      width: 16px;
       border-radius: 50%;
       border: 1px dashed $clr-dark;
-      font-size: 30px;
+      font-size: 24px;
     }
 
     .text {
@@ -259,7 +183,8 @@ body {
     outline: none;
     background: transparent;
     z-index: 2;
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 1px;
   }
 
   &__bar {

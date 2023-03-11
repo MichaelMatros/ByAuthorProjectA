@@ -7,8 +7,8 @@ interface AuthOauthBtnProps {
 
 function AuthOauthBtn({ iconSrc, label }: AuthOauthBtnProps) {
   return (
-    <button className="btn oauth-login">
-      {iconSrc && <img src={iconSrc} alt="" className="oauth-login--icon" />}
+    <button className="btn font-poppins font-light text-base">
+      {iconSrc && <img src={iconSrc} alt="" className="w-[19px]" />}
       {label && <span>{label}</span>}
     </button>
   );

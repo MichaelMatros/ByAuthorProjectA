@@ -58,7 +58,7 @@ function AuthDialogSignup() {
 
   return (
     <AuthDialogCard>
-      <Brand mobileOnly />
+      <Brand className="tablet:hidden" />
       <FormMultistepProvider
         onIndexChange={(index) => {
           setErrorDisplay(index == 1 ? "firstError" : "summary");

@@ -49,7 +49,7 @@ $card-radius: 1px;
 
         .lg {
           display: block;
-          max-width: 240px;
+          max-width: 200px;
         }
       }
     }
@@ -57,8 +57,9 @@ $card-radius: 1px;
     @include media-desktop {
       width: 100%;
       font-weight: 275;
-      font-size: clamp(5vw, 6vw, 7vw);
+      font-size: clamp(4rem, calc(-2.92rem + 10.16vw), 9.75rem);
       letter-spacing: 10px;
+      font-family: $ff-serif-poppins;
 
       > * {
         line-height: 1;
@@ -80,12 +81,8 @@ $card-radius: 1px;
     height: 100%;
     max-width: 100%;
     padding-inline: $space-xs;
-    padding-block: $space-sm;
+    padding-block: 30px;
     font-family: $ff-serif-montserrat;
-
-    .get-started {
-      display: none;
-    }
   }
 
   @include media-tablet {
@@ -95,96 +92,40 @@ $card-radius: 1px;
     background-size: cover;
     justify-content: center;
     &__actions {
-      height: auto;
+      height: 776px;
       min-height: $card-height;
+
+      .auth--caption {
+        display: none;
+      }
     }
   }
 
   @include media-desktop {
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(15, minmax(0, 1fr));
-    justify-content: space-between;
-    align-items: center;
+    display: flex;
+    flex-direction: row;
+    background-size: contain;
+    background-position: initial;
 
     &__actions {
       justify-content: center;
-      grid-column: span 4 / span 4;
       height: 100%;
       width: 100%;
+      max-width: 500px;
       padding-inline: $space-sm;
       gap: $space-sm;
-
-      .brand {
-        display: none;
-      }
-
-      .auth--caption {
-        display: none;
-      }
-
-      .get-started {
-        font-family: $ff-serif-montserrat;
-        color: $clr-dark;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        text-transform: uppercase;
-
-        h2 {
-          font-size: 1.8rem;
-          font-weight: 500;
-          margin-bottom: calc($space-xs/3);
-        }
-
-        p {
-          color: $clr-header2;
-          line-height: $space-sm - 0.5;
-          font-size: 0.8rem;
-        }
-      }
     }
 
     &__text {
       height: 100%;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      grid-column: span 11 / span 11;
-      padding-block: $space-xs;
+      padding-block: 30px;
       padding-inline: $space-sm;
-
-      .footer {
-        display: flex;
-        align-items: flex-end;
-        font-family: $ff-serif-montserrat_alt;
-        font-weight: 300;
-        font-size: 1rem;
-        color: $clr-light;
-        line-height: 1.75rem;
-
-        &__text {
-          > span {
-            font-weight: 600;
-          }
-        }
-
-        &__link {
-          a {
-            text-decoration: none;
-            color: $clr-light;
-
-            display: flex;
-            align-items: center;
-          }
-        }
-      }
     }
   }
-}
-
-.auth-btn {
-  text-decoration: none;
 }
 
 .account {
@@ -197,11 +138,6 @@ $card-radius: 1px;
 
   > * {
     width: 100%;
-  }
-
-  .auth-btn {
-    background-color: $clr-dark;
-    color: $clr-light;
   }
 
   &__alts {
@@ -226,6 +162,7 @@ $card-radius: 1px;
     font-weight: 200;
     font-size: 14px;
     letter-spacing: 1px;
+    text-decoration: underline;
   }
 }
 
@@ -335,9 +272,9 @@ $card-radius: 1px;
         width: 100%;
         display: flex;
         font-family: $ff-serif-poppins;
-        border-left: 1px solid $clr-red-100;
+        border-left: 2px solid #070707;
         align-items: center;
-        margin-bottom: $space-xs;
+        padding-left: 10px;
 
         &--icon {
           color: $clr-red-100;
@@ -345,10 +282,12 @@ $card-radius: 1px;
           display: flex;
           align-items: center;
           justify-content: center;
+          display: none;
         }
 
         &--text {
-          color: $clr-dark-300;
+          color: #070707;
+          font-size: 14px;
         }
       }
 
@@ -390,7 +329,7 @@ $card-radius: 1px;
           }
 
           &:disabled {
-            background-color: lighten($clr-dark, 30%);
+            background-color: #070707;
           }
 
           &.can-hover {
@@ -478,24 +417,6 @@ $card-radius: 1px;
     @include media-tablet {
       min-height: 610px;
     }
-  }
-}
-
-.oauth-logins {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-
-  .oauth-login--icon {
-    width: 19px;
-  }
-
-  .oauth-login {
-    font-family: $ff-serif-poppins;
-    font-weight: 300;
-    font-size: 20px;
   }
 }
 

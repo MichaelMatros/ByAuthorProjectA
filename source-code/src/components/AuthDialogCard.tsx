@@ -8,7 +8,7 @@ interface AuthDialogProps {
 function AuthDialogCard({ children }: AuthDialogProps) {
   return (
     <>
-      <Brand tabletOnly alt lg />
+      <Brand className="hidden tablet:flex desktop:hidden" alt lg />
       <div className="auth-dialog__card">{children}</div>
     </>
   );
