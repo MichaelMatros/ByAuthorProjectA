@@ -1,7 +1,7 @@
 import React from "react";
 import Space from "./Space";
 
-function AuthTextSectionFooter() {
+function AuthSectionTextFooter() {
   return (
     <div className="flex items-end font-montserrat-alt font-light text-app-light text-[16px] leading-5">
       <div>
@@ -22,4 +22,4 @@ function AuthTextSectionFooter() {
   );
 }
 
-export default AuthTextSectionFooter;
+export default AuthSectionTextFooter;

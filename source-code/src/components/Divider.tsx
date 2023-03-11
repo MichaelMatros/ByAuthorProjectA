@@ -5,7 +5,7 @@ interface DividerProps {
 }
 
 function Divider({ children }: DividerProps) {
-  return <div>{children ?? "or"}</div>;
+  return <div className="divider">{children ?? "or"}</div>;
 }
 
 export default Divider;

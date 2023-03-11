@@ -1,14 +1,14 @@
 import React from "react";
 
-interface AuthPageActionsSectionBtnProps {
+interface AuthPageSectionActionsBtnProps {
   to?: string;
   label: string;
 }
 
-function AuthPageActionsSectionBtn({
+function AuthPageSectionActionsBtn({
   to,
   label,
-}: AuthPageActionsSectionBtnProps) {
+}: AuthPageSectionActionsBtnProps) {
   return (
     <a href={to} className="btn no-underline bg-app-dark text-app-light">
       {label}
@@ -16,4 +16,4 @@ function AuthPageActionsSectionBtn({
   );
 }
 
-export default AuthPageActionsSectionBtn;
+export default AuthPageSectionActionsBtn;

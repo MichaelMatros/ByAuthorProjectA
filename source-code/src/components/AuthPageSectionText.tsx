@@ -2,9 +2,9 @@ import React from "react";
 import Brand from "./Brand";
 import Space from "./Space";
 import AuthPageCaption from "./AuthPageCaption";
-import AuthPageTextSectionFooter from "./AuthPageTextSectionFooter";
+import AuthPageTextSectionFooter from "./AuthPageSectionTextFooter";
 
-function AuthTextSection() {
+function AuthPageSectionText() {
   return (
     <div className="auth__text">
       <Brand alt lg />
@@ -16,4 +16,4 @@ function AuthTextSection() {
   );
 }
 
-export default AuthTextSection;
+export default AuthPageSectionText;

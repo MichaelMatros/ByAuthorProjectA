@@ -16,6 +16,7 @@ import FormMultistepWrapper from "./FormMultistepWrapper";
 import FormMultistepNav from "./FormMultistepNav";
 import FormInputPassword from "./FormInputPassword";
 import FormErrorDisplay from "./FormErrorDisplay";
+import Divider from "./Divider";
 
 function AuthDialogSignin() {
   const [username, setUsername] = useState("");
@@ -63,7 +64,7 @@ function AuthDialogSignin() {
           </FormMultistepNav>
         </div>{" "}
         <AuthOAuthLogins />
-        <div className="divider">or</div>
+        <Divider>or</Divider>
         <div className="form">
           <h3 className="form__title">Sign In</h3>
           <p className="form__link">

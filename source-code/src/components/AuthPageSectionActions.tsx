@@ -2,28 +2,32 @@ import React from "react";
 import Brand from "./Brand";
 import AuthPageCaption from "./AuthPageCaption";
 import AuthOAuthLogins from "./AuthOAuthLogins";
-import AuthPageActionsSectionBtn from "./AuthPageActionsSectionBtn";
+import Divider from "./Divider";
+import AuthPageSectionActionsBtn from "./AuthPageSectionActionsBtn";
+import Space from "./Space";
 
-function AuthPageActionsSection() {
+function AuthPageSectionActions() {
   return (
     <section className="auth__actions">
+      <Space className="hidden tablet:flex" />
       <Brand className="tablet:hidden" />
       <AuthPageCaption center />
-      <div className="hidden desktop:flex font-montserrat text-app-dark flex-col items-center text-center uppercase">
+      <div className="hidden tablet:flex font-montserrat text-app-dark flex-col items-center text-center uppercase">
         <h2 className="text-[30px] font-medium mb-3">Get started </h2>
         <p className="text-base text-app-dark-header-2">
           create a new account or log in <br /> already created
         </p>
       </div>
       <AuthOAuthLogins />
-      <div className="divider">or</div>
+      <Divider>or</Divider>
       <div className="account">
-        <AuthPageActionsSectionBtn to="#signup" label="Create a New Account" />
+        <AuthPageSectionActionsBtn to="#signup" label="Create a New Account" />
         <div className="account__alts">
           <span>Do you have account?</span>
-          <AuthPageActionsSectionBtn to="#signin" label="Sign In" />
+          <AuthPageSectionActionsBtn to="#signin" label="Sign In" />
         </div>
       </div>
+      <Space />
       <div className="policy">
         <a href="/">Privacy Policy</a>
       </div>
@@ -31,4 +35,4 @@ function AuthPageActionsSection() {
   );
 }
 
-export default AuthPageActionsSection;
+export default AuthPageSectionActions;

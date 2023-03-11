@@ -49,7 +49,7 @@ $card-radius: 1px;
 
         .lg {
           display: block;
-          max-width: 240px;
+          max-width: 200px;
         }
       }
     }
@@ -57,8 +57,9 @@ $card-radius: 1px;
     @include media-desktop {
       width: 100%;
       font-weight: 275;
-      font-size: clamp(5vw, 6vw, 7vw);
+      font-size: clamp(4rem, calc(-2.92rem + 10.16vw), 9.75rem);
       letter-spacing: 10px;
+      font-family: $ff-serif-poppins;
 
       > * {
         line-height: 1;
@@ -80,7 +81,7 @@ $card-radius: 1px;
     height: 100%;
     max-width: 100%;
     padding-inline: $space-xs;
-    padding-block: $space-sm;
+    padding-block: 30px;
     font-family: $ff-serif-montserrat;
   }
 
@@ -91,37 +92,37 @@ $card-radius: 1px;
     background-size: cover;
     justify-content: center;
     &__actions {
-      height: auto;
+      height: 776px;
       min-height: $card-height;
-    }
-  }
-
-  @include media-desktop {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(15, minmax(0, 1fr));
-    justify-content: space-between;
-    align-items: center;
-
-    &__actions {
-      justify-content: center;
-      grid-column: span 4 / span 4;
-      height: 100%;
-      width: 100%;
-      padding-inline: $space-sm;
-      gap: $space-sm;
 
       .auth--caption {
         display: none;
       }
     }
+  }
+
+  @include media-desktop {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background-size: contain;
+    background-position: initial;
+
+    &__actions {
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      max-width: 500px;
+      padding-inline: $space-sm;
+      gap: $space-sm;
+    }
 
     &__text {
       height: 100%;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      grid-column: span 11 / span 11;
-      padding-block: $space-xs;
+      padding-block: 30px;
       padding-inline: $space-sm;
     }
   }
@@ -161,6 +162,7 @@ $card-radius: 1px;
     font-weight: 200;
     font-size: 14px;
     letter-spacing: 1px;
+    text-decoration: underline;
   }
 }
 
