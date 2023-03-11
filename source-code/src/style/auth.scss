@@ -272,9 +272,9 @@ $card-radius: 1px;
         width: 100%;
         display: flex;
         font-family: $ff-serif-poppins;
-        border-left: 1px solid $clr-red-100;
+        border-left: 2px solid #070707;
         align-items: center;
-        margin-bottom: $space-xs;
+        padding-left: 10px;
 
         &--icon {
           color: $clr-red-100;
@@ -282,10 +282,12 @@ $card-radius: 1px;
           display: flex;
           align-items: center;
           justify-content: center;
+          display: none;
         }
 
         &--text {
-          color: $clr-dark-300;
+          color: #070707;
+          font-size: 14px;
         }
       }
 
@@ -327,7 +329,7 @@ $card-radius: 1px;
           }
 
           &:disabled {
-            background-color: lighten($clr-dark, 30%);
+            background-color: #070707;
           }
 
           &.can-hover {
